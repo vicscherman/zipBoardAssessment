@@ -59,7 +59,6 @@ button:focus {
 
 header {
   background: #3b5998;
-  /* background-image: linear-gradient(to bottom, #d0edf5, #e1e5f0 100%); */
   padding: 20px 15px 15px 15px;
   position: relative;
   box-shadow: 0 3px 3px rgba(34, 25, 25, 0.4);
@@ -125,6 +124,7 @@ header {
 
 .tasks > li > button {
   justify-self: flex-end;
+  height: 25px;
   background-color: #ff3046;
 }
 
@@ -209,6 +209,12 @@ header {
  width: 80px;
 }
 
+
+
 .poster{
+  flex-direction: column;
   width:15px
 }
+
+
+

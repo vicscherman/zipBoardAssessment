@@ -9,13 +9,6 @@ import { LoginForm } from './LoginForm';
 export const App = () => {
   const user = useTracker(() => Meteor.user());
 
-  const [hideCompleted, setHideCompleted] = useState(false);
-  //hide completed returns only unchecked elements
-  const hideCompletedFilter = { isChecked: { $ne: true } };
-
-  const userFilter = user ? { userId: user._id } : {};
-
-  // const pendingOnlyFilter = { ...hideCompletedFilter, ...userFilter };
 
   const messages = useTracker(() => {
     if (!user) {
@@ -23,7 +16,7 @@ export const App = () => {
     }
 
     return MessagesCollection.find(
-      // hideCompleted ? pendingOnlyFilter :
+     
       {},
       {
         sort: { createdAt: -1 },

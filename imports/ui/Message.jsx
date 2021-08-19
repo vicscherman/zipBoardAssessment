@@ -9,14 +9,18 @@ console.log(date)
   return (
     <li className ="fullMessage">
   
-     
+    
       <h4 className="postedBy">Posted By:</h4>
       {message.userId === currentUser ? (
         <span className="poster">Me</span>
       ) : (
         <span className="poster">{user.username}</span>
       )}
+     
+ 
           <span className="post">{message.text}</span>
+         
+          
       <h4 className="postedBy">Posted At:</h4>
       <span className="poster">{date}</span>
       {message.userId === currentUser ? (
@@ -24,6 +28,7 @@ console.log(date)
       ) : (
         ''
       )}
+     
     </li>
   );
 };
