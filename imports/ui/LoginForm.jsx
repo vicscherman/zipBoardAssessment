@@ -7,16 +7,17 @@ export const LoginForm = () => {
   const [password, setPassword] = useState('');
   const [signUp, setSignup] = useState(false);
 
-  const toggleSignup = () => {
+  const signUpOn = () => {
     setSignup(true);
+  };
+
+  const signUpOff = () => {
+    setSignup(false);
   };
 
   const submit = (e) => {
     e.preventDefault();
-    // Accounts.createUser({
-    //   username: username,
-    //   password: password,
-    // });
+
     if (signUp === false) {
       Meteor.loginWithPassword(username, password);
     } else {
@@ -54,11 +55,13 @@ export const LoginForm = () => {
         />
       </div>
       <div>
-        <button type='submit'>Log In</button>
+        <button onClick={signUpOff} type='submit'>
+          Log In
+        </button>
       </div>
       <div>OR</div>
       <div>
-        <button onClick={toggleSignup} type='submit'>
+        <button onClick={signUpOn} type='submit'>
           Sign Up
         </button>
       </div>
