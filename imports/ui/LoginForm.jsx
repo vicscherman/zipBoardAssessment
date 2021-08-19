@@ -5,15 +5,28 @@ import React, { useState } from 'react';
 export const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [signUp, setSignup] = useState(false);
+
+  const toggleSignup = () => {
+    setSignup(true);
+  };
 
   const submit = (e) => {
     e.preventDefault();
-    Accounts.createUser({
-      username: username,
-      password: password,
-    });
+    // Accounts.createUser({
+    //   username: username,
+    //   password: password,
+    // });
+    if (signUp === false) {
+      Meteor.loginWithPassword(username, password);
+    } else {
+      Accounts.createUser({
+        username: username,
+        password: password,
+      });
 
-    Meteor.loginWithPassword(username, password);
+      Meteor.loginWithPassword(username, password);
+    }
   };
 
   return (
@@ -42,6 +55,12 @@ export const LoginForm = () => {
       </div>
       <div>
         <button type='submit'>Log In</button>
+      </div>
+      <div>OR</div>
+      <div>
+        <button onClick={toggleSignup} type='submit'>
+          Sign Up
+        </button>
       </div>
     </form>
   );

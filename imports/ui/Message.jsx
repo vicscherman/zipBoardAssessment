@@ -3,7 +3,7 @@ import React from 'react';
 import { Accounts } from 'meteor/accounts-base';
 
 export const Message = ({ message, onDeleteClick, currentUser }) => {
-  let date = JSON.stringify(message.createdAt).toLocaleString()
+  let date = JSON.stringify(message.createdAt).substr(1,16)
   const user = Accounts.users.findOne({ _id: message.userId });
 console.log(date)
   return (
